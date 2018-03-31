@@ -5,13 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,7 +17,13 @@ import android.widget.TextView;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -82,13 +85,34 @@ public class MainActivity extends AppCompatActivity {
             }
         },1000);
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                sendRetrofitRequest();
+            }
+        }).start();
+        sendRetrofitRequest();
     }
 
 
+    private void sendRetrofitRequest(){
+        Retrofit retrofit = new Retrofit.Builder()
+                //这里建议：- Base URL: 总是以/结尾；- @Url: 不要以/开头
+                .baseUrl("https://api.github.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiStores apiStores = retrofit.create(ApiStores.class);
+        Call<GitLoginData> call = apiStores.getLoginName("simonws");
 
+        try {
+            Response<GitLoginData> bodyResponse = call.execute();
+            GitLoginData body = bodyResponse.body();//获取返回体的字符串
+            Log.d(TAG, "retrofit body=" + body);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-
-
+    }
 
     public static String getProcessName() {
         try {
