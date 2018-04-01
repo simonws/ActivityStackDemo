@@ -2,4 +2,6 @@
     <string name="app_name">Demo</string>
     <string name="send">发送</string>
     <string name="receive">建立</string>
+    <string name="title_activity_rxjava_demo">RxjavaDemoActivity</string>
+    <string name="goto_rxjava">goto_rxjava</string>
 </resources>

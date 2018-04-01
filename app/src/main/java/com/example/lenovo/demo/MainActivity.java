@@ -25,7 +25,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private static final String TAG = "Main_Activity";
 
@@ -85,13 +85,12 @@ public class MainActivity extends AppCompatActivity {
             }
         },1000);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                sendRetrofitRequest();
-            }
-        }).start();
-        sendRetrofitRequest();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                sendRetrofitRequest();
+//            }
+//        }).start();
     }
 
 
@@ -188,5 +187,18 @@ public class MainActivity extends AppCompatActivity {
     public boolean onTouchEvent(MotionEvent event) {
         int ss = event.getAction();
         return super.onTouchEvent(event);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.goto_rxjava:
+                Intent intent = new Intent(MainActivity.this,RxjavaDemoActivity.class);
+                startActivity(intent);
+                break;
+            default:break;
+        }
+
     }
 }

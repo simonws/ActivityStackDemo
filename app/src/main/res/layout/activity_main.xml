@@ -39,6 +39,7 @@
             android:layout_below="@+id/img_id"
             android:src="@mipmap/lbjn"
             android:layout_marginTop="4dp"
+            android:visibility="gone"
             android:background="@color/colorPrimary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -46,8 +47,18 @@
         <ImageView
             android:id="@+id/img_id2"
             android:layout_marginTop="4dp"
+            android:visibility="gone"
             android:layout_below="@+id/img_id1"
             android:src="@mipmap/ic_launcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+            android:id="@+id/goto_rxjava"
+            android:layout_below="@+id/img_id2"
+            android:onClick="onClick"
+            android:text="@string/goto_rxjava"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
