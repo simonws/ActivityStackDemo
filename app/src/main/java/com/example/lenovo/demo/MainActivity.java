@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.lenovo.demo.annotationdemo.AnnotationActivityDemo;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,SecondActivity.class));
+                startActivity(new Intent(MainActivity.this,AnnotationActivityDemo.class));
             }
         });
 
@@ -196,6 +198,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.goto_rxjava:
                 Intent intent = new Intent(MainActivity.this,RxjavaDemoActivity.class);
                 startActivity(intent);
+                break;
+
+            case R.id.goto_annotation:
+                Intent intent0 = new Intent(MainActivity.this,AnnotationActivityDemo.class);
+                startActivity(intent0);
                 break;
             default:break;
         }

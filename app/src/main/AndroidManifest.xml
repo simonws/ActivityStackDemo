@@ -38,11 +38,11 @@
 
         <activity android:name=".SocketDemoActivity" />
         <activity android:name=".SecondActivity" />
-
         <activity
             android:name=".RxjavaDemoActivity"
             android:label="@string/title_activity_rxjava_demo"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".annotationdemo.AnnotationActivityDemo"></activity>
     </application>
 
 </manifest>

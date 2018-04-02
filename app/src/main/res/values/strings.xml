@@ -4,4 +4,5 @@
     <string name="receive">建立</string>
     <string name="title_activity_rxjava_demo">RxjavaDemoActivity</string>
     <string name="goto_rxjava">goto_rxjava</string>
+    <string name="goto_annotation">goto_annotation</string>
 </resources>

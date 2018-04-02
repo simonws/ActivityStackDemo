@@ -55,10 +55,19 @@
 
 
         <Button
-            android:id="@+id/goto_rxjava"
-            android:layout_below="@+id/img_id2"
+        android:id="@+id/goto_rxjava"
+        android:layout_below="@+id/img_id2"
+        android:onClick="onClick"
+        android:text="@string/goto_rxjava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+        <Button
+            android:id="@+id/goto_annotation"
+            android:layout_below="@+id/goto_rxjava"
             android:onClick="onClick"
-            android:text="@string/goto_rxjava"
+            android:text="@string/goto_annotation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

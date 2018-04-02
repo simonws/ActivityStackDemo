@@ -57,7 +57,6 @@ public class RxjavaDemoActivity extends AppCompatActivity {
                 System.out.println("OnSubscribe@ "+Thread.currentThread().getName()); //new Thread
                 subscriber.onNext(1);
             }})
-                .subscribeOn(Scheduler.Schedulers.io())
                 .subscribe(new Subscriber<Integer>() {
                     @Override
                     public void onCompleted() {
