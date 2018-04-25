@@ -37,7 +37,8 @@
         <service android:name=".DemoService" />
 
         <activity android:name=".SocketDemoActivity" />
-        <activity android:name=".SecondActivity" />
+        <activity android:name=".SecondActivity"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".RxjavaDemoActivity"
             android:label="@string/title_activity_rxjava_demo"

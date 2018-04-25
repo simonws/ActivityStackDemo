@@ -11,65 +11,64 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
 
         <ImageView
-            android:layout_alignParentTop="true"
             android:id="@+id/img_id"
-            android:src="@mipmap/lbjn"
-            android:visibility="gone"
-            android:background="@color/colorAccent"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorAccent"
+            android:src="@mipmap/lbjn"
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/img_id1"
-            android:layout_below="@+id/img_id"
-            android:src="@mipmap/lbjn"
-            android:layout_marginTop="4dp"
-            android:visibility="gone"
-            android:background="@color/colorPrimary"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_id"
+            android:layout_marginTop="4dp"
+            android:background="@color/colorPrimary"
+            android:src="@mipmap/lbjn"
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/img_id2"
-            android:layout_marginTop="4dp"
-            android:visibility="gone"
-            android:layout_below="@+id/img_id1"
-            android:src="@mipmap/ic_launcher"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_id1"
+            android:layout_marginTop="4dp"
+            android:src="@mipmap/ic_launcher"
+            android:visibility="gone" />
 
 
         <Button
-        android:id="@+id/goto_rxjava"
-        android:layout_below="@+id/img_id2"
-        android:onClick="onClick"
-        android:text="@string/goto_rxjava"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+            android:id="@+id/goto_rxjava"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_id2"
+            android:onClick="onClick"
+            android:text="@string/goto_rxjava" />
 
 
         <Button
             android:id="@+id/goto_annotation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/goto_rxjava"
             android:onClick="onClick"
-            android:text="@string/goto_annotation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="@string/goto_annotation" />
 
     </RelativeLayout>
 

@@ -27,7 +27,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "Main_Activity";
 
@@ -40,13 +40,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,AnnotationActivityDemo.class));
+                startActivity(new Intent(MainActivity.this, SecondActivity.class));
             }
         });
 
         String processName = getProcessName();
-        String processName1 = getProcessName(this,android.os.Process.myPid());
-        Log.d(TAG,"onCreate " + processName + " == " + processName1 + " == pid:" + android.os.Process.myPid() +  " == tid：" +  android.os.Process.myTid());
+        String processName1 = getProcessName(this, android.os.Process.myPid());
+        Log.d(TAG, "onCreate " + processName + " == " + processName1 + " == pid:" + android.os.Process.myPid() + " == tid：" + android.os.Process.myTid());
 //        try {
 //            return;
 //        } catch (Error e){
@@ -60,32 +60,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         ImageView imageView = (ImageView) findViewById(R.id.img_id);
-        final  ImageView imageView1 = (ImageView) findViewById(R.id.img_id1);
+        final ImageView imageView1 = (ImageView) findViewById(R.id.img_id1);
 //        ImageView imageView2 = (ImageView) findViewById(R.id.img_id2);
-       final Bitmap originBitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.lbjn);
+        final Bitmap originBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.lbjn);
 //        imageView.setImageBitmap(originBitmap);
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = 2;
         options.inPreferredConfig = Bitmap.Config.RGB_565;
-        final Bitmap sampleBitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.lbjn,options);
+        final Bitmap sampleBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.lbjn, options);
         imageView1.setImageBitmap(originBitmap);
 //        imageView1.setBackgroundColor(Color.BLUE);
 
         Matrix matrix = new Matrix();
         matrix.setScale(0.5f, 0.5f);
         final Bitmap scaledBitMap = Bitmap.createBitmap(originBitmap, 0, 0, originBitmap.getWidth(),
-                originBitmap.getHeight(), matrix, true);
+            originBitmap.getHeight(), matrix, true);
 
         imageView1.postDelayed(new Runnable() {
             @Override
             public void run() {
 
-                Log.d(TAG," == " +  sampleBitmap.getWidth() + " == " + sampleBitmap.getHeight() + " == " + sampleBitmap.getByteCount() +
-                        " == " +  scaledBitMap.getWidth() + " == " + scaledBitMap.getHeight() + " == " + scaledBitMap.getByteCount()
-                        + " == " + originBitmap.getWidth() + " == " + originBitmap.getHeight() + " == " + originBitmap.getByteCount()
-                        + " == " + imageView1.getWidth() + " == " + imageView1.getHeight());
+                Log.d(TAG, " == " + sampleBitmap.getWidth() + " == " + sampleBitmap.getHeight() + " == " + sampleBitmap.getByteCount() +
+                    " == " + scaledBitMap.getWidth() + " == " + scaledBitMap.getHeight() + " == " + scaledBitMap.getByteCount()
+                    + " == " + originBitmap.getWidth() + " == " + originBitmap.getHeight() + " == " + originBitmap.getByteCount()
+                    + " == " + imageView1.getWidth() + " == " + imageView1.getHeight());
             }
-        },1000);
+        }, 1000);
 
 //        new Thread(new Runnable() {
 //            @Override
@@ -96,12 +96,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private void sendRetrofitRequest(){
+    private void sendRetrofitRequest() {
         Retrofit retrofit = new Retrofit.Builder()
-                //这里建议：- Base URL: 总是以/结尾；- @Url: 不要以/开头
-                .baseUrl("https://api.github.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+            //这里建议：- Base URL: 总是以/结尾；- @Url: 不要以/开头
+            .baseUrl("https://api.github.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
         ApiStores apiStores = retrofit.create(ApiStores.class);
         Call<GitLoginData> call = apiStores.getLoginName("simonws");
 
@@ -196,15 +196,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.goto_rxjava:
-                Intent intent = new Intent(MainActivity.this,RxjavaDemoActivity.class);
+                Intent intent = new Intent(MainActivity.this, RxjavaDemoActivity.class);
                 startActivity(intent);
                 break;
 
             case R.id.goto_annotation:
-                Intent intent0 = new Intent(MainActivity.this,AnnotationActivityDemo.class);
+                Intent intent0 = new Intent(MainActivity.this, AnnotationActivityDemo.class);
                 startActivity(intent0);
                 break;
-            default:break;
+            default:
+                break;
         }
 
     }
